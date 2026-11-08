@@ -1,0 +1,13 @@
+const N="2347037686617",EM="info@yourdomain.com",wa=t=>"https://wa.me/"+N+"?text="+encodeURIComponent(t),$=s=>document.querySelector(s),H=$("header");
+document.querySelectorAll(".wa").forEach(a=>{a.href=wa("Hello Pure Harvest Farms Nigeria, I would like to enquire about "+a.dataset.t+".");a.target="_blank";a.rel="noopener"});
+addEventListener("scroll",()=>H.classList.toggle("s",scrollY>10),{passive:true});
+const mb=$("#mb"),lk=$("#lk");mb.onclick=()=>{const o=lk.classList.toggle("open");mb.setAttribute("aria-expanded",o)};lk.onclick=e=>{if(e.target.tagName=="A"){lk.classList.remove("open");mb.setAttribute("aria-expanded",false)}};
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.1});document.querySelectorAll(".rv").forEach(e=>io.observe(e));
+const secs=[...document.querySelectorAll("main section[id]")],ls=[...lk.children];
+new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)ls.forEach(a=>a.classList.toggle("on",a.getAttribute("href")=="#"+e.target.id))}),{rootMargin:"-45% 0px -50% 0px"}).observe&&secs.forEach(s=>new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)ls.forEach(a=>a.classList.toggle("on",a.getAttribute("href")=="#"+e.target.id))}),{rootMargin:"-45% 0px -50% 0px"}).observe(s));
+let busy=false;$("#f").onsubmit=e=>{e.preventDefault();const f=e.target,m=$("#msg"),v=n=>f.elements[n].value.trim();m.className="";
+if(busy)return;if(!v("n")||!v("p")||!v("e")||!v("t")||!v("m")){m.className="err";m.textContent="Please complete all required fields.";return}
+if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v("e"))){m.className="err";m.textContent="Please enter a valid email address.";return}
+const em=e.submitter&&e.submitter.id=="se",bs=f.querySelectorAll("button");busy=true;bs.forEach(b=>b.disabled=true);setTimeout(()=>{busy=false;bs.forEach(b=>b.disabled=false)},4000);
+const t=`Hello Pure Harvest Farms Nigeria,\nName: ${v("n")}\n${v("b")?"Business: "+v("b")+"\n":""}Phone: ${v("p")}\nEmail: ${v("e")}\nEnquiry type: ${v("t")}\nMessage: ${v("m")}`;
+if(em){m.textContent="Opening your email app. Press send there to deliver your enquiry.";location.href="mailto:"+EM+"?subject="+encodeURIComponent("Enquiry: "+v("t"))+"&body="+encodeURIComponent(t)}else{m.textContent="Opening WhatsApp. Press send there to deliver your enquiry.";window.open(wa(t),"_blank","noopener")}};
